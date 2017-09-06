@@ -1,3 +1,5 @@
+# Find samples that have both tests assigned to them ----------------------
+
 # Clean ------------------------------------------------------------------
 rm(list=ls())
 
