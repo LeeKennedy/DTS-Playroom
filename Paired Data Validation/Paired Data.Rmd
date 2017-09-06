@@ -1,0 +1,57 @@
+---
+title: "Paired Data Comparison"
+author: "Lee Kennedy"
+date: "6 December 2014"
+output: html_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+data.in <- read.csv("Book2.csv", header=TRUE)
+library(dplyr)
+```
+
+You can also embed plots, for example:
+
+```{r}
+# Determines the effect size between two sets of data.
+cohens_d <- function(x, y) {
+        lx <- length(x)- 1
+        ly <- length(y)- 1
+        md  <- abs(mean(x) - mean(y))
+        csd <- lx * var(x) + ly * var(y)
+        csd <- csd/(lx + ly)
+        csd <- sqrt(csd)
+        
+        cd  <- md/csd   ## cohen's d
+}
+```
+
+
+```{r}
+data.in <- data.in[1:15,]
+
+t1 <- data.in$A
+t2 <- data.in$B
+```
+
+
+```{r, echo=FALSE}
+boxplot(t1, t2)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+t.test(t2, t1, paired = TRUE)
+```
+
+
+```{r}
+aa <- cohens_d(data.in$A, data.in$B)
+round(aa,2)
+```
+
