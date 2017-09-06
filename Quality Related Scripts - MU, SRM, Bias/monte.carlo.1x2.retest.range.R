@@ -1,3 +1,4 @@
+#Maximum range of results for a single test and two retests ------------------
 # Insert mean and std deviation into A, B & C.  Add other variables, as needed.
 library(dplyr)
 

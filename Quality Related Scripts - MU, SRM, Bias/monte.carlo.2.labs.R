@@ -3,9 +3,9 @@ library(dplyr)
 
 # Insert appropriate values --------------------------------------------------
 Result_Mean1 <- 77
-Result_sd_R1 <- 2.0
-Result_Mean2 <- 78
-Result_sd_R2 <- 0.05
+Result_sd_R1 <- 1.0
+Result_Mean2 <- 77
+Result_sd_R2 <- 1.0
 
 # Set the data matrix --------------------------------------------------------
 A <- rnorm(100000, Result_Mean1, Result_sd_R1)
@@ -26,7 +26,7 @@ Upper = Em+2*Esd
 Range = 4*Esd
 
 # Histogram of ranges --------------------------------------------------------
-hist(Set$Diff, breaks=30)
+hist(Set$Diff, breaks=50)
 abline(v=Upper, col="red", lty=2)
 abline(v=Lower, col="red", lty=2)
 

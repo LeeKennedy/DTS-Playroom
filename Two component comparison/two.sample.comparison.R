@@ -21,7 +21,7 @@ remove_outliers <- function(x, na.rm = TRUE, ...) {
 
 # Data Input -------------------------------------------------------------
 
-data.in <- read_csv("~/Desktop/Two_Samples.csv")
+data.in <- read_csv("Two_Samples.csv")
 
 # Data Cleaning ----------------------------------------------------------
 

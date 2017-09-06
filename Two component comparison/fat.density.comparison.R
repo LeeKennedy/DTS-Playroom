@@ -9,7 +9,7 @@ library(tidyr)
 library(ggplot2)
 
 # Data Input -------------------------------------------------------------
-data.in <- read_excel("~/Desktop/cream.xlsx")
+data.in <- read_excel("cream.xlsx")
 
 ## Data Cleaning ---------------------------------------------------------
 

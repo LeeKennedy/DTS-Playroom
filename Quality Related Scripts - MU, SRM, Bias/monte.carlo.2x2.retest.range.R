@@ -34,3 +34,6 @@ Range_max <- Em + k*Esd
 
 # Histogram of ranges --------------------------------------------------------
 hist(Eqn$Diff, breaks=30)
+
+
+
