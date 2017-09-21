@@ -11,7 +11,7 @@ library(dts.quality)
  
 #### Data Input -----------------------------
  
-data.in <- read_excel("~/Desktop/TCAR_testdata.xlsx", 
+data.in <- read_excel("~/Documents/GitHub/DTS Playroom/Swing Data Wide/TCAR_testdata.xlsx", 
                       col_types = c("numeric", "date", "date", 
                                     "text", "text", "text", "text", "numeric", 
                                     "numeric", "text", "text", "text", 
@@ -26,7 +26,7 @@ data.in2 <- data.in %>% filter(REPORTABLE == "T")
 ## If you want to compare unreportable results, eg FAME---------------------
 #data.in2 <- data.in %>% filter(grepl("FAME", ANALYSIS))
 
-data.in2 <- data.in2[,c(1,5:9,18)]
+data.in2 <- data.in2[,c("SAMPLE_NUMBER", "ANALYSIS", "REPORTED_NAME", "UNITS", "ENTRY", "REPLICATE_COUNT", "STATUS")]
  
 wide_data <- spread(data.in2, SAMPLE_NUMBER, ENTRY, fill="")
 
