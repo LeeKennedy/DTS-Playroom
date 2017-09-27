@@ -9,40 +9,22 @@ library(dts.quality)
 #### Functions -----------------------------
  
  
-#### Data Input - xlsx preferred -----------------------------------------
-
-## Preferred fields: "SAMPLE_NUMBER", "ANALYSIS", "REPORTED_NAME", "UNITS", "ENTRY", "REPLICATE_COUNT", "STATUS"
+#### Data Input -----------------------------
  
-data.in <- read_excel("~/Desktop/Test1.xlsx", 
-                      col_types = c("numeric", "date", "text", 
-                                    "text", "text", "text", "numeric", 
-                                    "text", "numeric"))
-
+data.in <- read_excel("~/Documents/GitHub/DTS Playroom/Swing Data Wide/TCAR_testdata.xlsx", 
+                      col_types = c("numeric", "date", "date", 
+                                    "text", "text", "text", "text", "numeric", 
+                                    "numeric", "text", "text", "text", 
+                                    "text", "text", "text", "text", "text", 
+                                    "text", "text", "numeric"))
+        
 #### Data Cleaning -----------------------------
-
 ## Select only the reportable components--------
-
-if("REPORTABLE" %in% names(data.in) == FALSE) {
-        data.in$REPORTABLE = "T"
-}
 
 data.in2 <- data.in %>% filter(REPORTABLE == "T")
 
-## Standardise UNITS ---------------------------
-names(data.in2)[names(data.in2) == 'REPORTED_UNITS'] <- 'UNITS'
-
-## If you want to compare specific results, eg FAME---------------------
+## If you want to compare unreportable results, eg FAME---------------------
 #data.in2 <- data.in %>% filter(grepl("FAME", ANALYSIS))
-
-## add dummy data if REPLICATE_COUNT and STATUS absent -----------------
-
-if("STATUS" %in% names(data.in2) == FALSE) {
-        data.in2$STATUS = "xxx"
-}
-
-if("REPLICATE_COUNT" %in% names(data.in2) == FALSE) {
-        data.in2$REPLICATE_COUNT = 99
-}
 
 data.in2 <- data.in2[,c("SAMPLE_NUMBER", "ANALYSIS", "REPORTED_NAME", "UNITS", "ENTRY", "REPLICATE_COUNT", "STATUS")]
  
