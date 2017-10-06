@@ -9,7 +9,7 @@ library(tidyr)
 library(ggplot2)
 
 # Data Input -------------------------------------------------------------
-data.in <- read_excel("cream.xlsx")
+data.in <- read_excel("C:/Users/leekennedy/Desktop/SUG_STARCH.xlsx")
 
 ## Data Cleaning ---------------------------------------------------------
 
@@ -43,12 +43,17 @@ data.in_4 <- spread(data.in_3, ANALYSIS, ENTRY)
 colnames(data.in_4)[2] <- "B"
 colnames(data.in_4)[3] <- "A"
 
+fit <- lm(A~B-1, data=data.in_4)
+summary(fit)
+confint(fit)
+
 
 # Graph ------------------------------------------------------------------
 
 comparison_plot <- ggplot(data.in_4, aes(x=B, y=A)) +
                         geom_point(size=4, shape=21, col = "darkgreen", fill = "beige") +
-        labs(x=set[2], y=set[1]) +
+        labs(x=set[1], y=set[2]) +
+        geom_abline(slope = 7.03520, intercept = 0, lty=2, col="red")+
         theme_bw()
                         
 comparison_plot
