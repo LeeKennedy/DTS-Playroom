@@ -37,11 +37,20 @@ data.in_3 <- data.all2[, c(1,5,8)]
 
 data.in_4 <- spread(data.in_3, ANALYSIS, ENTRY)
 
+data.in_5 <- data.in_4 %>% 
+        filter(DENS030112 > 0.975)
+
 # Graph ------------------------------------------------------------------
 
-fat_dens_plot <- ggplot(data.in_4, aes(x=DENS030112, y=FATS011299)) +
-                        geom_point(size=4, shape=21, col = "darkgreen", fill = "beige") 
-        theme_bw()
+fat_dens_plot <- ggplot() +
+        geom_point(data = data.in_4, aes(x=DENS030112, y=FATS011299),size=4, shape=21, fill = "red")+
+        geom_point(data = data.in_5, aes(x=DENS030112, y=FATS011299),size=4, shape=21, fill = "cornflowerblue")+
+        theme_bw()+
+        theme(panel.grid.major = element_line(size = 0.5, color = "grey"), 
+                axis.line = element_line(size = 0.7, color = "black"), 
+                text = element_text(size = 14), axis.text.x = element_text(angle = 0, hjust = 1))
+                
                         
 fat_dens_plot
 
+# ggsave("cream.png", width = 10, height = 10, dpi = 100)
