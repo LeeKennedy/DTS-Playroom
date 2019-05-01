@@ -1,4 +1,4 @@
-data.in <- read.csv("Test_equiv.csv", as.is=TRUE, header=TRUE)
+data.in <- read.csv("data/Test_equiv.csv", as.is=TRUE, header=TRUE)
 library(equivalence)
 
 options(warn=-1)  # to turn on warnings use options(warn=0)
