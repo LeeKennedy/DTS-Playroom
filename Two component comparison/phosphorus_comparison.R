@@ -48,7 +48,7 @@ phos_plot <- ggplot() +
         geom_point(data = data.in_4, aes(x=PHOS010493, y=MICP010406 ),size=4, shape=21, fill = "cornflowerblue")+
         geom_abline(slope = 1, intercept = 0, lty=2, col = "red")+
         #geom_abline(slope = 1.16887, intercept = 0, lty=1, col="grey70")+
-        labs(title = "Comparison of Phosphorus Methods", x = "PHOS01, mg/100g", y = "MICP01, mg/100g", caption = "Red line = 1:1 equivalence")+
+        labs(title = "Comparison of Phosphorus Methods", subtitle = "Client = FONJVDPN, 2019 data", x = "PHOS01, mg/100g", y = "MICP01, mg/100g", caption = "Red line = 1:1 equivalence")+
         theme_bw()+
         theme(panel.grid.major = element_line(size = 0.5, color = "grey"), 
                 axis.line = element_line(size = 0.7, color = "black"), 
