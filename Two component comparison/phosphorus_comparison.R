@@ -7,8 +7,11 @@ library(readr)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(here)
 
 # Data Input -------------------------------------------------------------
+
+here()
 data.in <- read_excel("Phosphorus_02102019.xlsx")
 
 ## Data Cleaning ---------------------------------------------------------
