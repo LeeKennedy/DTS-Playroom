@@ -3,10 +3,10 @@ library(psych)
 
 x <- 100   # Mean     
 r <- 2  # Repeatability sd
-R <- 5  # Reproducibility sd
-i <- 9  # extra columns excluding column 1.  Max = 9
-j <- 7  # items in first column. Max = 7
-k <- 7  # items in remaining columns. Max = 7
+R <- 3  # Reproducibility sd
+i <- 2  # extra columns excluding column 1.  Max = 9
+j <- 5  # items in first column. Max = 7
+k <- 5  # items in remaining columns. Max = 7
 
 nest_output <- data.frame(
         Repeatability = numeric(),
